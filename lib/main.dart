@@ -1,8 +1,22 @@
-// main.dart
 import 'package:flutter/material.dart';
-import 'screens/main_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:t_absensi/screens/splash_screen.dart';
+import 'package:t_absensi/services/api_services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize API service
+  ApiService.initialize();
+
+  // Set system UI overlay style
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
+
   runApp(AttendanceApp());
 }
 
@@ -11,6 +25,7 @@ class AttendanceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Attendance App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.blue[700],
@@ -20,10 +35,10 @@ class AttendanceApp extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.blue[700],
           foregroundColor: Colors.white,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
         ),
       ),
-      home: MainScreen(),
-      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
     );
   }
 }
