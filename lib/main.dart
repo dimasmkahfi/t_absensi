@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:t_absensi/screens/splash_screen.dart';
@@ -5,6 +7,7 @@ import 'package:t_absensi/services/api_services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = MyHttpOverrides();
 
   // Initialize API service
   ApiService.initialize();

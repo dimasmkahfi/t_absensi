@@ -2,8 +2,8 @@
 
 class AppConstants {
   // API Configuration
-  static const String baseUrl = 'https://your-api-url.com/api';
-  static const String faceRecognitionUrl = 'https://your-face-api-url.com';
+  // static const String baseUrl = 'https://your-api-url.com/api';
+  String faceRecognitionUrl = 'https://your-face-api-url.com';
 
   // API Endpoints
   static const String loginEndpoint = '/auth/login';
